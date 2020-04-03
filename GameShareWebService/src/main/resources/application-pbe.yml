@@ -1,0 +1,22 @@
+spring:
+  profiles: production
+  
+jasypt: 
+  encryptor: 
+    bean: encryptorBean
+    password: AlDG24o+7%GsPq=MN)SCnv
+    algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
+    keyObtentionIterations: 111043
+    poolSize: 8
+    providerName: BC
+
+  fixedSaltStringEncryptor:
+    salt: GjoJ?21=S=CztgEoEp<v
+    password: Uczy?BjQ829>HsUH(39
+    algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
+    keyObtentionIterations: 101723
+    poolSize: 8
+    providerName: BC
+    
+    
+    
