@@ -1,0 +1,85 @@
+# data source configuration
+spring:
+  datasource:
+    url: jdbc\:postgresql\://localhost\:7336/gameShare
+    username: gameShareCzar
+    password: ENC(hK0hb63KX1gB90RMdcO/V+9xl2BKe3B+XrRRGuCyhZJ8ygUAZCGn3hk2iGm/ZJ/T)
+
+# jpa configuration
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      use-new-id-generator-mappings: true
+
+---
+
+spring:
+  profiles: production
+
+  datasource:
+    password: ENC()
+    
+# activemq configuration
+  activemq:
+    broker-url: ssl\://10.1.100.55\:61619?daemon\=true
+    user: uwebsvc
+    password: ENC(/ZwGiGraz3Qnsn8Ov3dguVtwcI6YmF5YrFvnxbv7wTdhJHjXWaKN8pR3D+YOvh1K)
+    pool:
+      enabled: true
+
+# jta.bitronix configuration
+  jta:
+    bitronix:
+    
+      # ActiveMQ broker transactions
+      connectionfactory:
+        allow-local-transactions: false
+        max-pool-size: 180
+        min-pool-size: 4
+        user: uwebsvc
+        password: ENC(xsnV7NtFA41mKcCBPI4AQlNvDHrUhtl4uiZD7aFsGtR5HnV/KtQ/RKgY1CfO+bnH)
+        share-transaction-connections: true
+        unique-name: amqConnectionFactory
+
+      # PostgreSQL database transactions
+      datasource:
+        share-transaction-connections: true
+        unique-name: gameSharePgSource
+        max-pool-size: 180
+        min-pool-size: 4
+        isolation-level: REPEATABLE_READ
+  
+##  TODO  #####################################################
+# Property 'security.require-ssl' is Deprecated: 
+# The security auto-configuration is no longer customizable.
+# Provide your own WebSecurityConfigurer bean instead.
+#security:
+#  require-ssl: true
+###############################################################
+
+
+
+---
+
+spring:
+  profiles: development
+
+  datasource:
+    password: gameShareCzar
+
+# activemq configuration
+  activemq:
+    broker-url: tcp\://localhost\:61616?daemon\=true
+
+##  TODO  #####################################################
+# Property 'security.require-ssl' is Deprecated: 
+# The security auto-configuration is no longer customizable.
+# Provide your own WebSecurityConfigurer bean instead.
+#security:
+#  require-ssl: false
+###############################################################
+  
+  
