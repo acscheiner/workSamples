@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CastleHillGaming.Hms.HmsOnsiteService.Engine.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CasinoCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LuckyGalaxy_00799762</Value>
+    </Setting>
+    <Setting Name="CloudReportInterval" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">96</Value>
+    </Setting>
+    <Setting Name="DataBackupInterval" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">96</Value>
+    </Setting>
+    <Setting Name="DiagnosticPackagePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Diagnostics</Value>
+    </Setting>
+    <Setting Name="CloudReportStartupDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="DataBackupStartupDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="DiagnosticsStartupDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="DiagnosticsInterval" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">96</Value>
+    </Setting>
+    <Setting Name="DoReportToCloud" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

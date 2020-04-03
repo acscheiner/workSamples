@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CastleHillGaming.Hms.DataModel.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EventEntityHashKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">uAz9blJ3qK21QcWElLTCmqdeQT7Qhd5q3CBR7OWuJRvgwTx5eE4bXgHszj1Nozw</Value>
+    </Setting>
+    <Setting Name="MeterEntityHashKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mUxBWFYonwhPeFYjl5zuIQt3oShOtxRF4FgAOAX7kz88dgNN6VtuTPoZjVtqIkd</Value>
+    </Setting>
+    <Setting Name="MetricEntityHashKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">wpaWQo88ZG4s4xIYRSGei3CxWEhkV8BLsosto0A5YdIHK1zocU681uHPsfOyeWN</Value>
+    </Setting>
+    <Setting Name="WindowsEventEntityHashKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">nB3v4MSTe61TgHrGrmgpnPwCDA1N9HYRxJ3snhha21loKiuWiMOnvMpg3NaVXce</Value>
+    </Setting>
+    <Setting Name="VersionEntityHashKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">nKxe1EktUSZoOmTm4CYjr8eXx4bAUxRDzTDOo57SsJhmTTwTgcjMokLJ83nbsho</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
