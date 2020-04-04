@@ -378,6 +378,8 @@ namespace CastleHillGaming.Hms.DataModel
                 {
                     EgmDataCleanTimer.Dispose();
                     DataBackupCleanTimer.Dispose();
+                    DiagnosticDataCleanTimer.Dispose();
+                    LocalExportDataCleanTimer.Dispose();
                 }
             }
 
