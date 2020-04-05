@@ -13,29 +13,25 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
+import org.springframework.context.annotation.Profile;
 
 /**
  * The Class EncryptionConfig.
  */
 @Configuration
+@Profile("dataencrypt")
 public class EncryptionConfig {
 
     /** The Constant logger. */
     @SuppressWarnings("unused")
     private static final Logger logger = LoggerFactory.getLogger(EncryptionConfig.class);
 
-    /** The Constant DEFAULT_PROVIDER_NAME. */
-    private static final String DEFAULT_PROVIDER_NAME = "BC";
-
-    /** The Constant DEFAULT_POOL_SIZE. */
-    private static final String DEFAULT_POOL_SIZE = "8";
-
+    /** The Constant REGISTERED_NAME. */
     public static final String REGISTERED_NAME = "strongFixedSaltStringEncryptor";
 
-    /** The Spring Environment. */
+    /** The jfse props. */
     @Autowired
-    private Environment env;
+    private JasyptFixedSaltEncryptorProperties jfseProps;
 
     /**
      * Fixed string salt generator.
@@ -44,12 +40,7 @@ public class EncryptionConfig {
      */
     @Bean
     public SaltGenerator fixedSaltGenerator() {
-        if (!env.containsProperty("jasypt.fixedSaltStringEncryptor.salt")) {
-            return null;
-        }
-
-        final String salt = env.getProperty("jasypt.fixedSaltStringEncryptor.salt");
-        return new StringFixedSaltGenerator(salt);
+        return new StringFixedSaltGenerator(jfseProps.getSalt());
     }
 
     /**
@@ -59,21 +50,14 @@ public class EncryptionConfig {
      */
     @Bean
     public HibernatePBEStringEncryptor hibernateFixedSaltStringEncryptor() {
-        if (!env.containsProperty("jasypt.fixedSaltStringEncryptor.algorithm")
-                || !env.containsProperty("jasypt.fixedSaltStringEncryptor.keyObtentionIterations")
-                || !env.containsProperty("jasypt.fixedSaltStringEncryptor.password") || null == fixedSaltGenerator()) {
-            return null;
-        }
-
         final HibernatePBEStringEncryptor hibernateStringEncryptor = new HibernatePBEStringEncryptor();
 
         final EnvironmentStringPBEConfig encConfig = new EnvironmentStringPBEConfig();
-        encConfig.setProviderName(
-                env.getProperty("jasypt.fixedSaltStringEncryptor.providerName", DEFAULT_PROVIDER_NAME));
-        encConfig.setAlgorithm(env.getProperty("jasypt.fixedSaltStringEncryptor.algorithm"));
-        encConfig.setKeyObtentionIterations(env.getProperty("jasypt.fixedSaltStringEncryptor.keyObtentionIterations"));
-        encConfig.setPassword(env.getProperty("jasypt.fixedSaltStringEncryptor.password"));
-        encConfig.setPoolSize(env.getProperty("jasypt.fixedSaltStringEncryptor.poolSize", DEFAULT_POOL_SIZE));
+        encConfig.setProviderName(jfseProps.getProviderName());
+        encConfig.setAlgorithm(jfseProps.getAlgorithm());
+        encConfig.setKeyObtentionIterations(jfseProps.getKeyObtentionIterations());
+        encConfig.setPassword(jfseProps.getPassword());
+        encConfig.setPoolSize(jfseProps.getPoolSize());
 
         final PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         encryptor.setConfig(encConfig);

@@ -3,15 +3,13 @@
  */
 package com.castlehillgaming.gameshare.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.castlehillgaming.gameshare.web.InvalidTicketException;
 import com.castlehillgaming.gameshare_commonutils.SharedConstants;
@@ -22,7 +20,7 @@ public class TicketTest {
     private GameShareInfo gameShareInfo;
     private Ticket ticket;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         gameShareInfo = new GameShareInfo(Long.valueOf(1461870653220L), "Lucky Star", "Atlas", "ArcticCash",
                 Integer.valueOf(1200000), "wow! what a win!");
@@ -57,11 +55,9 @@ public class TicketTest {
         assertTrue(true);
     }
 
-    @Test
+    @Test(expected = InvalidTicketException.class)
     public void testValidateInvalidTicket() {
-        assertThrows(InvalidTicketException.class, () -> {
-        	Ticket.validateTicketValue("not a ticket value");
-          });
+        Ticket.validateTicketValue("not a ticket value");
     }
 
     @Test

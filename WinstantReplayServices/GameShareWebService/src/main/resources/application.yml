@@ -1,85 +1,87 @@
-# data source configuration
-spring:
-  datasource:
-    url: jdbc\:postgresql\://localhost\:7336/gameShare
-    username: gameShareCzar
-    password: ENC(hK0hb63KX1gB90RMdcO/V+9xl2BKe3B+XrRRGuCyhZJ8ygUAZCGn3hk2iGm/ZJ/T)
+############################################################
+# Base Configuration
+############################################################
 
-# jpa configuration
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    database: POSTGRESQL
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-      use-new-id-generator-mappings: true
+# datasource base config 
+spring.datasource:
+  url: jdbc:postgresql://localhost:7336/gameShare
+  username: gameShareCzar
 
----
+# ORM base config
+spring.jpa:
+  database-platform: org.hibernate.dialect.PostgreSQLDialect  
+  database: POSTGRESQL
+  hibernate:
+    use-new-id-generator-mappings: true
 
-spring:
-  profiles: production
+# ActiveMQ base config
+spring.activemq:
+  pool.enabled: true
 
-  datasource:
-    password: ENC()
+# JTA transaction base config
+spring.jta.bitronix:
+  # JTA ActiveMQ broker transaction base config
+  connectionfactory:
+    max-pool-size: 180
+    min-pool-size: 4
+    share-transaction-connections: true
+    unique-name: amqConnectionFactory
+    allow-local-transactions: false
     
-# activemq configuration
-  activemq:
-    broker-url: ssl\://10.1.100.55\:61619?daemon\=true
-    user: uwebsvc
-    password: ENC(/ZwGiGraz3Qnsn8Ov3dguVtwcI6YmF5YrFvnxbv7wTdhJHjXWaKN8pR3D+YOvh1K)
-    pool:
-      enabled: true
+  # JTA datasource transaction base config
+  datasource:
+    max-pool-size: 180
+    min-pool-size: 4
+    share-transaction-connections: true
+    unique-name: gameSharePgSource
+    isolation-level: REPEATABLE_READ
 
-# jta.bitronix configuration
-  jta:
-    bitronix:
-    
-      # ActiveMQ broker transactions
-      connectionfactory:
-        allow-local-transactions: false
-        max-pool-size: 180
-        min-pool-size: 4
-        user: uwebsvc
-        password: ENC(xsnV7NtFA41mKcCBPI4AQlNvDHrUhtl4uiZD7aFsGtR5HnV/KtQ/RKgY1CfO+bnH)
-        share-transaction-connections: true
-        unique-name: amqConnectionFactory
-
-      # PostgreSQL database transactions
-      datasource:
-        share-transaction-connections: true
-        unique-name: gameSharePgSource
-        max-pool-size: 180
-        min-pool-size: 4
-        isolation-level: REPEATABLE_READ
+# Specify Active Configuration Profile    
+spring:
+  profiles.active: development
   
-##  TODO  #####################################################
-# Property 'security.require-ssl' is Deprecated: 
-# The security auto-configuration is no longer customizable.
-# Provide your own WebSecurityConfigurer bean instead.
-#security:
-#  require-ssl: true
-###############################################################
-
-
-
 ---
+
+############################################################
+# development Configuration Profile
+############################################################
 
 spring:
   profiles: development
-
-  datasource:
-    password: gameShareCzar
-
-# activemq configuration
-  activemq:
-    broker-url: tcp\://localhost\:61616?daemon\=true
-
-##  TODO  #####################################################
-# Property 'security.require-ssl' is Deprecated: 
-# The security auto-configuration is no longer customizable.
-# Provide your own WebSecurityConfigurer bean instead.
-#security:
-#  require-ssl: false
-###############################################################
   
+spring.datasource:
+  password: gameShareCzar
   
+spring.jpa:
+  show-sql: true
+  hibernate:
+    ddl-auto: create-drop
+
+spring.activemq:
+  broker-url: tcp://localhost:61616?daemon=true
+
+---
+
+############################################################
+# production Configuration Profile
+# Note that this requires pbe profile be activated as well
+# (since ENC data is used)
+############################################################
+
+spring:
+  profiles: production
+  
+security.require-ssl: true
+
+spring.datasource:
+  password: ENC(PC/xeyovY7zy7pXRL2OTXN86rNDAcT9ZHJkaGlF6Ju4yOdh9liNSXXrG+d6LRNv5fAQAb9LrO9mX7k19XIowDomECIJHuQoTlqvyIjFkPRg=)
+
+spring.activemq:
+  broker-url: ssl://10.1.100.55:61619?daemon=true
+  user: uwebsvc
+  password: ENC(8yEWKKBLo9ckUpnAadyolnROJoEQh9wb29N34ja9kFZekg0XsXLF2JqAfwyypzHUOhgpb63jvKBHZC0fEb2CpNQP/kYezS7C/9r0BHEYBOA=)
+
+spring.jta.bitronix:
+  connectionfactory:
+    user: uwebsvc
+    password: ENC(rjisNEwsRqA64SJ4hduy/rYlC4XhABAdrYI/mKGKmnALjjeNpH9kv5exslezYNGxjRI97K+OxYtFbkLXEoTZnXCqwU3tkHr9BqQSZ91F878=)

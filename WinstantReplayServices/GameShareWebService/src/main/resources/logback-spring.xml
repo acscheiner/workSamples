@@ -2,7 +2,7 @@
 <configuration>
 	<appender name="dailyRollingFileAppender"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/Users/acscheiner/chg/gameShareProcessing/logs/webService.log</file>
+		<file>C:/chg/gameShareProcessing/logs/webService.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
 			<fileNamePattern>webService-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -26,6 +26,6 @@
 	</logger>
 
 	<root>
-		<level value="DEBUG" />
+		<level value="INFO" />
 	</root>
 </configuration>
