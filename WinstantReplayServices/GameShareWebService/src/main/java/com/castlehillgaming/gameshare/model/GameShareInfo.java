@@ -74,19 +74,14 @@ public class GameShareInfo implements Serializable {
     /**
      * Instantiates a new game share info.
      *
-     * @param casino
-     *            the casino
-     * @param cabinetType
-     *            the cabinet type, atlas or retro
-     * @param gameTitle
-     *            the game title
-     * @param centsWon
-     *            the cents won
-     * @param gameRecallData
-     *            the game recall data
+     * @param casino         the casino
+     * @param cabinetType    the cabinet type, atlas or retro
+     * @param gameTitle      the game title
+     * @param centsWon       the cents won
+     * @param gameRecallData the game recall data
      */
-    GameShareInfo(final Long gamePlayedAt, final String casino, final String cabinetType, final String gameTitle, final Integer centsWon,
-            final String gameRecallData) {
+    GameShareInfo(final Long gamePlayedAt, final String casino, final String cabinetType, final String gameTitle,
+            final Integer centsWon, final String gameRecallData) {
         if (!StringUtils.isBlank(casino)) {
             this.casino = StringUtils.trim(casino);
         } else {
@@ -96,11 +91,11 @@ public class GameShareInfo implements Serializable {
         this.centsWon = centsWon;
         this.gameRecallData = gameRecallData;
         this.gamePlayedAt = gamePlayedAt;
-        
-        if(!StringUtils.isBlank(cabinetType)){
-        	this.cabinetType = StringUtils.trim(cabinetType);
+
+        if (!StringUtils.isBlank(cabinetType)) {
+            this.cabinetType = StringUtils.trim(cabinetType);
         } else {
-        	this.cabinetType = StringUtils.EMPTY;
+            this.cabinetType = StringUtils.EMPTY;
         }
     }
 }

@@ -17,11 +17,10 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     /**
      * Find the Ticket entity with the specified ticketId.
      *
-     * @param ticketId
-     *            the ticketId value used for uniquely ID-ing a Winstant Reply
-     *            request
-     * @return an Optional Ticket instance (which will be null-valued if no
-     *         entity was found with the specified ticketId String).
+     * @param ticketId the ticketId value used for uniquely ID-ing a Winstant Reply
+     *                 request
+     * @return an Optional Ticket instance (which will be null-valued if no entity
+     *         was found with the specified ticketId String).
      */
-    public abstract Optional<Ticket> findByTicketId(String ticketId);
+    Optional<Ticket> findByTicketId(String ticketId);
 }

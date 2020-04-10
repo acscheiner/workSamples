@@ -55,8 +55,7 @@ public class GameShareServiceImpl implements GameShareService, Serializable {
     /*
      * (non-Javadoc)
      *
-     * @see
-     * com.castlehillgaming.gameshare.service.GameShareService#redeemTicket(
+     * @see com.castlehillgaming.gameshare.service.GameShareService#redeemTicket(
      * java.lang.String)
      */
     @Override
@@ -76,8 +75,7 @@ public class GameShareServiceImpl implements GameShareService, Serializable {
     /*
      * (non-Javadoc)
      *
-     * @see
-     * com.castlehillgaming.gameshare.service.GameShareService#updateJobStatus(
+     * @see com.castlehillgaming.gameshare.service.GameShareService#updateJobStatus(
      * java.lang.String,
      * com.castlehillgaming.gameshare_commonutils.TicketStatusEnum)
      */
@@ -112,8 +110,7 @@ public class GameShareServiceImpl implements GameShareService, Serializable {
     /*
      * (non-Javadoc)
      *
-     * @see
-     * com.castlehillgaming.gameshare.service.GameShareService#redeemTickets(
+     * @see com.castlehillgaming.gameshare.service.GameShareService#redeemTickets(
      * java.util.Map)
      */
     @Override

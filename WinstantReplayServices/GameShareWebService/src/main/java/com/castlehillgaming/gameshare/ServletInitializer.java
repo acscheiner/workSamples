@@ -4,7 +4,7 @@
 package com.castlehillgaming.gameshare;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * The Class ServletInitializer loads configuration information for this

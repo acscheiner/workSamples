@@ -14,8 +14,7 @@ public interface GameShareMessageProducer {
     /**
      * Send game share process recall data message.
      *
-     * @param gameShareTicket
-     *            the game share ticket
+     * @param gameShareTicket the game share ticket
      */
     void sendGameShareProcessRecallDataMessage(Ticket gameShareTicket);
 }

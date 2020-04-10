@@ -42,43 +42,43 @@ class TicketStatus implements Serializable {
     private @Getter Date createdAt;
 
     /**
-     * The date-time that the ticket was dispatched for processing (set to
-     * dateZero if not yet dispatched).
+     * The date-time that the ticket was dispatched for processing (set to dateZero
+     * if not yet dispatched).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date dispatchedAt;
 
     /**
-     * The date-time that video recording began for this ticket (set to dateZero
-     * if recording has not yet started).
+     * The date-time that video recording began for this ticket (set to dateZero if
+     * recording has not yet started).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date recordingAt;
 
     /**
-     * The date-time that video recording completed for this ticket (set to
-     * dateZero if recording has not yet completed).
+     * The date-time that video recording completed for this ticket (set to dateZero
+     * if recording has not yet completed).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date recordedAt;
 
     /**
-     * The date-time that video uploading began for this ticket (set to dateZero
-     * if recording has not yet started).
+     * The date-time that video uploading began for this ticket (set to dateZero if
+     * recording has not yet started).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date uploadingAt;
 
     /**
-     * The date-time that video uploading completed for this ticket (set to
-     * dateZero if recording has not yet completed).
+     * The date-time that video uploading completed for this ticket (set to dateZero
+     * if recording has not yet completed).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date uploadedAt;
 
     /**
-     * The date-time that all processing completed for this ticket (set to
-     * dateZero if processing has not yet fully completed).
+     * The date-time that all processing completed for this ticket (set to dateZero
+     * if processing has not yet fully completed).
      */
     @Column(columnDefinition = "timestamp (3) with time zone", nullable = false)
     private @Getter Date completedAt;
@@ -116,8 +116,7 @@ class TicketStatus implements Serializable {
     /**
      * Sets the ticket status.
      *
-     * @param status
-     *            the new status
+     * @param status the new status
      */
     void setStatus(final TicketStatusEnum status) {
         // only permit status transitions in ordered way

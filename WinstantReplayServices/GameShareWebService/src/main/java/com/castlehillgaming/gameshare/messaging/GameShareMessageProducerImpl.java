@@ -53,7 +53,7 @@ public class GameShareMessageProducerImpl implements GameShareMessageProducer, S
             message.setStringProperty(SharedConstants.CABINET_TYPE_MESSAGE_KEY,
                     gameShareTicket.getGameShareInfo().getCabinetType());
             message.setLongProperty(SharedConstants.GAME_PLAY_TIME_MESSAGE_KEY,
-                    gameShareTicket.getGameShareInfo().getGamePlayedAt().longValue());
+                    gameShareTicket.getGameShareInfo().getGamePlayedAt());
 
             logger.debug("sending JMS message: " + message.getStringProperty(SharedConstants.TICKET_MESSAGE_KEY));
 

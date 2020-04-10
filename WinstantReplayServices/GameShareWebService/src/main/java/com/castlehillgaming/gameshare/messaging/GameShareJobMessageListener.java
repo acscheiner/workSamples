@@ -31,8 +31,7 @@ public class GameShareJobMessageListener {
     /**
      * Consume message on the Game Share Job Message Queue.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     @JmsListener(destination = SharedConstants.JOB_INFO_MESSAGE_QUEUE_NAME)
     public void consumeMessage(final Message message) {

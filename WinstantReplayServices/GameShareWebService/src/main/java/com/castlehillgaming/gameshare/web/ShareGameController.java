@@ -44,14 +44,13 @@ public class ShareGameController {
     private GameShareService gameShareService;
 
     /**
-     * Submit game play info to game sharing service for
-     * (de-coupled/asynchronous) generation of game play share content.
+     * Submit game play info to game sharing service for (de-coupled/asynchronous)
+     * generation of game play share content.
      *
-     * @param gameShareInfo
-     *            the game share info (including game title, game-play results,
-     *            etc.) in HTTP request body
-     * @return A ticket (to be redeemed when game-play share content is ready
-     *         for downloading and sharing).
+     * @param gameShareInfo the game share info (including game title, game-play
+     *                      results, etc.) in HTTP request body
+     * @return A ticket (to be redeemed when game-play share content is ready for
+     *         downloading and sharing).
      */
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Ticket> submitGamePlayInfo(@RequestBody final GameShareInfo gameShareInfo) {
@@ -61,8 +60,7 @@ public class ShareGameController {
     /**
      * Reedeem ticket.
      *
-     * @param ticketValue
-     *            the ticket value
+     * @param ticketValue the ticket value
      * @return HTTP response entity containing only headers and status
      */
     @RequestMapping(value = "/redeemticket/{ticketValue}", method = RequestMethod.GET)
@@ -82,11 +80,10 @@ public class ShareGameController {
 
     /**
      * Redeem tickets for specified jobs. Action is to check is tickets for job
-     * completion and return a list of completed jobs only. Jobs which are not
-     * yet completed are ignored (and not included in the return Map).
+     * completion and return a list of completed jobs only. Jobs which are not yet
+     * completed are ignored (and not included in the return Map).
      *
-     * @param tickets
-     *            a list of job tickets to redeem
+     * @param tickets a list of job tickets to redeem
      * @return the response entity containing a Map of completed jobs keyed by
      *         ticketUuid mapping to the URL of the completed video
      */

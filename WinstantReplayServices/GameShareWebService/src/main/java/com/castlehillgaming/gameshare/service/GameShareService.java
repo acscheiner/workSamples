@@ -19,8 +19,7 @@ public interface GameShareService {
     /**
      * Submit a game share job.
      *
-     * @param gameShareInfo
-     *            the game share info
+     * @param gameShareInfo the game share info
      * @return the ticket
      */
     Ticket submitGameShareJob(GameShareInfo gameShareInfo);
@@ -28,8 +27,7 @@ public interface GameShareService {
     /**
      * Redeem ticket.
      *
-     * @param ticketValue
-     *            the ticket value
+     * @param ticketValue the ticket value
      * @return URL (as string) of completed GameShare video recording
      */
     String redeemTicket(String ticketValue);
@@ -37,40 +35,33 @@ public interface GameShareService {
     /**
      * Redeem Job Tickets.
      *
-     * @param tickets
-     *            the tickets
-     * @return Map of completed jobs keyed by ticketUuid mapped to URL for
-     *         completed video of game-play
+     * @param tickets the tickets
+     * @return Map of completed jobs keyed by ticketUuid mapped to URL for completed
+     *         video of game-play
      */
     Map<String, String> redeemTickets(List<String> tickets);
 
     /**
      * Update job status.
      *
-     * @param ticketValue
-     *            the ticket value
-     * @param jobStatus
-     *            the job status
+     * @param ticketValue the ticket value
+     * @param jobStatus   the job status
      */
     void updateJobStatus(String ticketValue, TicketStatusEnum jobStatus);
 
     /**
      * Save video.
      *
-     * @param ticketValue
-     *            the ticket value
-     * @param videoBytes
-     *            the recorded game-share video as a byte array
+     * @param ticketValue the ticket value
+     * @param videoBytes  the recorded game-share video as a byte array
      */
     void saveVideo(String ticketValue, byte[] videoBytes);
 
     /**
      * Complete job.
      *
-     * @param ticketValue
-     *            the ticket value
-     * @param videoUrl
-     *            the video url
+     * @param ticketValue the ticket value
+     * @param videoUrl    the video url
      */
     void completeJob(String ticketValue, String videoUrl);
 }

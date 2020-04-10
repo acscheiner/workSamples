@@ -85,8 +85,7 @@ public class Ticket implements Serializable {
     private @Getter TicketStatus status;
 
     /**
-     * The URL pointing to the location of the uploaded video for this
-     * game-share.
+     * The URL pointing to the location of the uploaded video for this game-share.
      */
     @JsonIgnore
     private @Getter @Setter String videoUrl;
@@ -98,8 +97,7 @@ public class Ticket implements Serializable {
     /**
      * Static class method for creating a new ticket.
      *
-     * @param gameShareInfo
-     *            the game share info
+     * @param gameShareInfo the game share info
      * @return the newly created ticket
      */
     static public Ticket createTicket(final GameShareInfo gameShareInfo) {
@@ -109,8 +107,7 @@ public class Ticket implements Serializable {
     /**
      * Instantiates a new ticket.
      *
-     * @param gameShareInfo
-     *            the game share info
+     * @param gameShareInfo the game share info
      */
     private Ticket(final GameShareInfo gameShareInfo) {
         this.gameShareInfo = gameShareInfo;
@@ -121,13 +118,11 @@ public class Ticket implements Serializable {
     /**
      * Validate ticketId value.
      *
-     * @param ticketValue
-     *            the ticketId value
+     * @param ticketValue the ticketId value
      */
     public static void validateTicketValue(final String ticketValue) {
-        if (!Pattern.compile("^" + SharedConstants.ticketIdRegex + "$").matcher(ticketValue).matches()) {
+        if (!Pattern.compile("^" + SharedConstants.ticketIdRegex + "$").matcher(ticketValue).matches())
             throw new InvalidTicketException();
-        }
     }
 
     /**
@@ -142,8 +137,7 @@ public class Ticket implements Serializable {
     /**
      * Sets the status.
      *
-     * @param status
-     *            the new status
+     * @param status the new status
      */
     public void setStatus(final TicketStatusEnum status) {
         this.status.setStatus(status);

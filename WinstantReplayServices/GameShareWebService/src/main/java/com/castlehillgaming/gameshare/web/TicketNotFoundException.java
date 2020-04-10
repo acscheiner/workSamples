@@ -19,8 +19,7 @@ public class TicketNotFoundException extends RuntimeException {
     /**
      * Instantiates a new ticket not found exception.
      *
-     * @param ticketValue
-     *            the ticket value
+     * @param ticketValue the ticket value
      */
     public TicketNotFoundException(final String ticketValue) {
         super("could not find ticket '" + ticketValue + "'.");
