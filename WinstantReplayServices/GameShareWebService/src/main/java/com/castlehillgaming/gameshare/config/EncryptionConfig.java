@@ -5,7 +5,7 @@ package com.castlehillgaming.gameshare.config;
 
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;
-import org.jasypt.hibernate4.encryptor.HibernatePBEStringEncryptor;
+import org.jasypt.hibernate5.encryptor.HibernatePBEStringEncryptor;
 import org.jasypt.salt.SaltGenerator;
 import org.jasypt.salt.StringFixedSaltGenerator;
 import org.slf4j.Logger;
