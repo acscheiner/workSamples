@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <property name="LOG_PATH" value="/Users/acscheiner/logs"/>
+    <property name="LOG_ARCHIVE" value="${LOG_PATH}/archive"/>
+     
 	<appender name="dailyRollingFileAppender"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>C:/chg/gameShareProcessing/logs/webService.log</file>
+		<file>${LOG_PATH}/shareGameWeb.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
 			<fileNamePattern>webService-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -27,5 +30,6 @@
 
 	<root>
 		<level value="INFO" />
+        <appender-ref ref="dailyRollingFileAppender" />
 	</root>
 </configuration>

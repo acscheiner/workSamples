@@ -9,11 +9,9 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -26,7 +24,6 @@ import lombok.ToString;
  * Share Service when s/he initiates a game-share request.
  */
 @Embeddable
-@JsonDeserialize(using = GameShareInfoDeserializer.class)
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)

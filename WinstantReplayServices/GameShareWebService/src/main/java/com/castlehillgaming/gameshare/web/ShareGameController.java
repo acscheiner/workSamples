@@ -15,10 +15,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.castlehillgaming.gameshare.model.GameShareInfo;
@@ -52,7 +53,7 @@ public class ShareGameController {
      * @return A ticket (to be redeemed when game-play share content is ready for
      *         downloading and sharing).
      */
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Ticket> submitGamePlayInfo(@RequestBody final GameShareInfo gameShareInfo) {
         return new ResponseEntity<>(gameShareService.submitGameShareJob(gameShareInfo), HttpStatus.CREATED);
     }
@@ -63,7 +64,7 @@ public class ShareGameController {
      * @param ticketValue the ticket value
      * @return HTTP response entity containing only headers and status
      */
-    @RequestMapping(value = "/redeemticket/{ticketValue}", method = RequestMethod.GET)
+    @GetMapping(value = "/redeemticket/{ticketValue}")
     public ResponseEntity<?> reedeemTicket(@PathVariable final String ticketValue) {
         Ticket.validateTicketValue(ticketValue);
 
@@ -87,7 +88,7 @@ public class ShareGameController {
      * @return the response entity containing a Map of completed jobs keyed by
      *         ticketUuid mapping to the URL of the completed video
      */
-    @RequestMapping(value = "/redeemtickets/{tickets}", method = RequestMethod.GET)
+    @GetMapping(value = "/redeemtickets/{tickets}")
     public ResponseEntity<Map<String, String>> redeemTickets(@PathVariable final List<String> tickets) {
         final List<String> validTickets = new ArrayList<>();
         tickets.forEach(ticket -> {

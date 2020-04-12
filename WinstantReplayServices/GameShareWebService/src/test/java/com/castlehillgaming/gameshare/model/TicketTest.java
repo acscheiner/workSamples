@@ -22,8 +22,8 @@ public class TicketTest {
 
     @Before
     public void setUp() throws Exception {
-        gameShareInfo = new GameShareInfo(Long.valueOf(1461870653220L), "Lucky Star", "Atlas", "ArcticCash",
-                Integer.valueOf(1200000), "wow! what a win!");
+        gameShareInfo = new GameShareInfo(1461870653220L, "Lucky Star", "Atlas", "ArcticCash",
+                1200000, "wow! what a win!");
         ticket = Ticket.createTicket(gameShareInfo);
     }
 
